@@ -10,7 +10,7 @@ import { SignOutButton, SignedIn } from '@clerk/nextjs';
 
 function LeftSidebar() {
 const router = useRouter();
-  const pathname = usePathname();
+const pathname = usePathname();
   return (
    <section className='custom-scrollbar leftsidebar'>
     <div className="flex w-full flex-1 flex-col gap-6 px-6">
@@ -18,8 +18,6 @@ const router = useRouter();
           const isActive =
             (pathname.includes(link.route) && link.route.length > 1) ||
             pathname === link.route;
-
-        
 
           return (
             <Link
