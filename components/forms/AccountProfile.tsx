@@ -1,28 +1,29 @@
-"use client"
+"use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { ChangeEvent, useState } from 'react';
-import Image from 'next/image';
 import * as z from "zod";
-import { useForm } from 'react-hook-form';
-import { usePathname,useRouter } from "next/navigation";
+import Image from "next/image";
+import { useForm } from "react-hook-form";
+import { usePathname, useRouter } from "next/navigation";
+import { ChangeEvent, useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { UserValidation } from '@/lib/validations/account.schema';
-import {useUploadThing} from "@/lib/uploadthing"
-
-import { Button } from "@/components/ui/button";
 import {
-        Form,
-        FormControl,
-        FormField,
-        FormItem,
-        FormLabel
-    } from "@/components/ui/form";
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { isBase64Image } from "@/lib/utils";
-import { updateUser } from "@/lib/actions/user.actions";
 
+import { useUploadThing } from "@/lib/uploadthing";
+import { isBase64Image } from "@/lib/utils";
+
+import { updateUser } from "@/lib/actions/user.actions";
+import { UserValidation } from "@/lib/validations/account.schema";
 
 interface Props {
   user: {
@@ -163,6 +164,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   {...field}
                 />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -182,7 +184,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   {...field}
                 />
               </FormControl>
-
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -202,6 +204,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   {...field}
                 />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
