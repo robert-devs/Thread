@@ -10,9 +10,9 @@ async function Page(){
         id:user?.id,
         objectId:userInfo?._id,
         username : userInfo?.username || user?.username,
-        name:userInfo?.name || user?.firstName || username,
+        name:userInfo?.name || user?.firstName || '',
         bio:userInfo?.bio || "",
-        Image:userInfo?.image ||user?.imageUrl
+        Image:userInfo?.image || user?.imageUrl
     }
     return(
         <main className="mx-auto flex max-w-3xl flex-col justify-start px-10 py-20">
