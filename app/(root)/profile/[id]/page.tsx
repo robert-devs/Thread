@@ -9,22 +9,28 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { fetchUser } from "@/lib/actions/user.actions";
 
-async function Page({ params }: { params: { id: string } }) {
+
+const page = async({ params }: { params: { id: string } }) => {
   const user = await currentUser();
+  
   if (!user) return null;
 
   const userInfo = await fetchUser(params.id);
-  if (!userInfo?.onboarded) redirect("/onboarding");
+  console.log(userInfo);
+  
+  if (userInfo && (userInfo.onboarded === undefined || userInfo.onboarded === false)) {
+  redirect("/onboarding");
+}
 
   return (
     <section>
       <ProfileHeader
-        accountId={userInfo.id}
+        accountId={userInfo?.id}
         authUserId={user.id}
-        name={userInfo.name}
-        username={userInfo.username}
-        imgUrl={userInfo.image}
-        bio={userInfo.bio}
+        name={userInfo?.name}
+        username={userInfo?.username}
+        imgUrl={userInfo?.image}
+        bio={userInfo?.bio}
       />
 
       <div className='mt-9'>
@@ -68,4 +74,4 @@ async function Page({ params }: { params: { id: string } }) {
     </section>
   );
 }
-export default Page;
+export default page;
