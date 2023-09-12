@@ -45,19 +45,23 @@ export async function updateUser({
   }
 }
 
-export async function fetchUser (userId :string){
-    try {
-        connectToDB()
-        return await User
-        .findOne({
-            id:userId
-        })
-        // .populate({
-        //     // path:'comunity',
-        //     // model: 'Community',
-        // })
-        
-    } catch (error:any) {
-        throw new Error(`failed to fetch user: ${error.message}`)
+export async function fetchUser(userId: string) {
+//   if (!userId) {
+//     throw new Error("User ID is missing or undefined");
+//   }
+
+  try {
+    connectToDB();
+
+    const user = await User.findOne({ id: userId });
+
+    if (!user) {
+      throw new Error(`User with ID ${userId} not found`);
     }
+
+    return user;
+  } catch (error: any) {
+    throw new Error(`Failed to fetch user: ${error.message}`);
+  }
 }
+
