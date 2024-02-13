@@ -124,7 +124,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                     width={96}
                     height={96}
                     priority
-                    className='rounded-full object-contain'
+                    className='object-contain rounded-full'
                   />
                 ) : (
                   <Image
@@ -136,7 +136,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
                   />
                 )}
               </FormLabel>
-              <FormControl className='flex-1 text-base-semibold text-gray-200'>
+              <FormControl className='flex-1 text-gray-200 text-base-semibold'>
                 <Input
                   type='file'
                   accept='image/*'
@@ -153,7 +153,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           control={form.control}
           name='name'
           render={({ field }) => (
-            <FormItem className='flex w-full flex-col gap-3'>
+            <FormItem className='flex flex-col w-full gap-3'>
               <FormLabel className='text-base-semibold text-light-2'>
                 Name
               </FormLabel>
@@ -173,7 +173,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           control={form.control}
           name='username'
           render={({ field }) => (
-            <FormItem className='flex w-full flex-col gap-3'>
+            <FormItem className='flex flex-col w-full gap-3'>
               <FormLabel className='text-base-semibold text-light-2'>
                 Username
               </FormLabel>
@@ -193,7 +193,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
           control={form.control}
           name='bio'
           render={({ field }) => (
-            <FormItem className='flex w-full flex-col gap-3'>
+            <FormItem className='flex flex-col w-full gap-3'>
               <FormLabel className='text-base-semibold text-light-2'>
                 Bio
               </FormLabel>
